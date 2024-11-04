@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abirami G - Portfolio</title>
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Background Animation */
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #f093fb;
+        }
+
+        /* Header section */
+        #header {
+            text-align: center;
+            padding: 80px 20px;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            animation: zoomIn 1.5s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #header h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(120deg, #f093fb, #f5576c);
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #header p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #dcdcdc;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* Section styling */
+        section {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #f093fb;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Skills section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 10px 18px;
+            background: #333;
+            border-radius: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background: linear-gradient(120deg, #f093fb, #f5576c);
+        }
+
+        /* Projects section */
+        .project {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #222;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .project img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Resume and Contact sections */
+        .resume-link, .contact-info a {
+            color: #f093fb;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .resume-link:hover, .contact-info a:hover {
+            color: #f5576c;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar a {
+                margin: 10px 0;
+            }
+            #header h1 {
+                font-size: 2.2rem;
+            }
+            #header p {
+                font-size: 1rem;
+            }
+            .skills-container {
+                flex-direction: column;
+            }
+            .project {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #header h1 {
+                font-size: 1.8rem;
+            }
+            #header p {
+                font-size: 0.9rem;
+            }
+            .resume-link, .contact-info a {
+                font-size: 0.9rem;
+            }
+            footer {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#header">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Header Section -->
+    <section id="header">
+        <div class="profile-photo">
+            <img src="me.jpeg" alt="Abirami G">
+        </div>
+        <h1>Abirami G</h1>
+        <p>Passionate Student | VIT Vellore | Integrated M.Tech in Computer Science and Engineering - Data Science 📊
+
+            I am currently a third-year student in the Integrated M.Tech program in Computer Science and Engineering, specializing in Data Science at VIT Vellore. My studies have provided me with a strong foundation in programming languages such as Python, C, and Java, along with hands-on experience in data analytics and machine learning.
+            
+            I am eager to apply my skills in real-world projects and internships, where I can contribute to innovative solutions and gain valuable industry experience. With a passion for harnessing data to drive decisions, I continuously seek to expand my knowledge and stay updated on the latest advancements in the field.
+            r</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a dedicated student pursuing an integrated M.Tech program at VIT Vellore with a specialization in Data Science. With a strong foundation in computer science, I am passionate about exploring the power of data-driven decision-making in modern technology.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">Data Science</div>
+            <div class="skill">C, C++</div>
+            <div class="skill">Java</div>
+            <div class="skill">Python</div>
+            <div class="skill">HTML, CSS, Tailwind CSS</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <img src="cal.jpg" alt="Project Image">
+            <h3>Animated Calculator</h3>
+            <p>Built an interactive calculator with HTML, CSS, and JavaScript, featuring a modern UI, animated button effects, and shake feedback on errors. Handles basic arithmetic and enhances UX through responsive, visually engaging design.</p>
+        </div>
+        <div class="project">
+            <img src="login.jpg" alt="Project Image">
+            <h3>Login Page UI</h3>
+            <p>Built a responsive, dark-themed login interface using HTML and Tailwind CSS. Includes email/password fields with icons, smooth transitions, and social login options for GitHub, Google, and Dribbble. Showcases UI design skills and responsive, accessible form styling.</p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <p>Integrated M.Tech in Computer Science and Engineering (Data Science) at VIT Vellore, expected graduation in 2027.
+            
+        </p>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>Resume</h2>
+        <p>You can view my resume <a class="resume-link" href="https://drive.google.com/file/d/17g3ZYHD-VWDkyWmMEhVh8aabG2MUwGWS/view?usp=sharing" target="_blank">here</a>.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:gabirami444@gmail.com">gabirami444@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919944971053">9944971053</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Abirami G. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
